@@ -3,6 +3,7 @@ package com.darren.dubbo.consumer;
 import com.darren.dubbo.service.util.DateTools;
 import org.junit.Test;
 
+import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +40,15 @@ public class CommonTest {
         System.out.println(DateTools.getCurrentDateYYYYMMDDHHMMSSsss());
         System.out.println(DateTools.getCurrentFormatDate());
         System.out.println("时间：" + DateTools.stampToDate(startTime));
-
-
     }
+
+    @Test
+    public void random() {
+        for (int i = 0; i < 100; i++) {
+            Integer randomId = new SecureRandom().nextInt(10);
+            System.out.println(randomId);
+        }
+    }
+
+
 }
