@@ -31,7 +31,7 @@ public class CommonTest {
 
     @Test
     public void timeStampConvert() {
-        long startTime = 1592823546777L;
+        long startTime = 1593680418000L;// 1593681580349 1593680418000
         long interval = 1800000;
 
         System.out.println(DateTools.getCurrentMsecTimestamp());
@@ -39,6 +39,7 @@ public class CommonTest {
         System.out.println(DateTools.getCurrentDateyyyyMMddhhmmss());
         System.out.println(DateTools.getCurrentDateYYYYMMDDHHMMSSsss());
         System.out.println(DateTools.getCurrentFormatDate());
+
         System.out.println("时间：" + DateTools.stampToDate(startTime));
     }
 
