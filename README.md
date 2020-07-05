@@ -89,3 +89,16 @@ Dubbo提供了4种LoadBalance的实现（默认random），我们也可以自己
 *   算法参见：[http://en.wikipedia.org/wiki/Consistent_hashing](http://en.wikipedia.org/wiki/Consistent_hashing)
 *   缺省只对第一个参数 Hash，如果要修改，请配置 `<dubbo:parameter key="hash.arguments" value="0,1" />`
 *   缺省用 160 份虚拟节点，如果要修改，请配置 `<dubbo:parameter key="hash.nodes" value="320" />`
+
+## dubbo的原理
+### 如何解析标签
+基于 dubbo.jar 内的 META-INF/spring.handlers 配置，Spring 在遇到 dubbo 名称空间时，会回调 DubboNamespaceHandler。
+所有 dubbo 的标签，都统一用 DubboBeanDefinitionParser 进行解析，基于一对一属性映射，将 XML 标签解析为 Bean 对象。
+在 ServiceConfig.export() 或 ReferenceConfig.get() 初始化时，将 Bean 对象转换 URL 格式，所有 Bean 属性转成 URL 的参数。
+### 服务暴露过程
+![服务暴露](https://upload-images.jianshu.io/upload_images/20792523-0886bb6555776712.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 服务引用过程
+![服务引用](https://upload-images.jianshu.io/upload_images/20792523-2e23434ecbeda010.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 服务调用过程
+![服务调用](https://upload-images.jianshu.io/upload_images/20792523-bdd74f56ed5e1d1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
