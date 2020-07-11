@@ -31,7 +31,7 @@ public class CommonTest {
 
     @Test
     public void timeStampConvert() {
-        long startTime = 1593680418000L;// 1593681580349 1593680418000
+        long startTime = 1594297174308L;// 1593681580349 1593680418000
         long interval = 1800000;
 
         System.out.println(DateTools.getCurrentMsecTimestamp());
@@ -40,7 +40,8 @@ public class CommonTest {
         System.out.println(DateTools.getCurrentDateYYYYMMDDHHMMSSsss());
         System.out.println(DateTools.getCurrentFormatDate());
 
-        System.out.println("时间：" + DateTools.stampToDate(startTime));
+        System.out.println("时间戳转日期：" + DateTools.stampToDate(startTime));
+        System.out.println("日期转时间戳：" + DateTools.stringToDate("20200706113800", DateTools.FORMAT_MICROSECOND2).getTime());
     }
 
     @Test
@@ -49,6 +50,15 @@ public class CommonTest {
             Integer randomId = new SecureRandom().nextInt(10);
             System.out.println(randomId);
         }
+    }
+
+    @Test
+    public void nextMonitorTime() {
+        // 获取每分钟的整分时间戳
+        long now = System.currentTimeMillis();
+        long time = now - now % (1000 * 60);
+        System.out.println(time);
+        System.out.println("时间戳转日期：" + DateTools.stampToDate(time));
     }
 
 
