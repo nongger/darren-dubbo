@@ -31,7 +31,7 @@ public class CommonTest {
 
     @Test
     public void timeStampConvert() {
-        long startTime = 1594297174308L;// 1593681580349 1593680418000
+        long startTime = 1594297174308L;// 1593681580349 1593680418000 1594712331
         long interval = 1800000;
 
         System.out.println(DateTools.getCurrentMsecTimestamp());
